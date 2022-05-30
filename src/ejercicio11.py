@@ -23,15 +23,20 @@ def es_multiplo(numero, multiplo):
     numero = es_int(numero)
     multiplo = es_int(multiplo)
     
-    
-    while multiplo - numero >= 0:
-        multiplo = multiplo - numero;
-    
     if multiplo == 0:
         res = True
-    else:
+    elif numero == 0:
         res = False
-    
+    else:
+        
+        while multiplo - numero >= 0:
+            multiplo = multiplo - numero;
+        
+        if multiplo == 0:
+            res = True
+        else:
+            res = False
+        
     return res
 
 

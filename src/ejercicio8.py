@@ -18,16 +18,19 @@ def es_primo(numero):
     
     numero = es_int(numero)
     
-    indice = numero - 1
-    resultado = True
-    while indice > 1:
-        if numero % indice == 0:
-            resultado = False
-            break
-        else:
-            resultado = True
-            indice = indice - 1    
-    return resultado
+    if numero == 0 or numero == 1:
+        return False
+    else:
+        indice = numero - 1
+        resultado = True
+        while indice > 1:
+            if numero % indice == 0:
+                resultado = False
+                break
+            else:
+                resultado = True
+                indice = indice - 1    
+        return resultado
 
 
 

@@ -19,17 +19,20 @@ def factores_primos(numero):
     
     numero = es_int(numero)
     
-    index = 1
-    resultado = ()
-    while index <= numero:
-        if es_primo(index) == True:
-            if numero % index == 0:
-                resultado = resultado + (index,)
+    if es_primo(numero):
+        resultado = (numero)
+    else:
+        index = 1
+        resultado = ()
+        while index <= numero:
+            if es_primo(index) == True:
+                if numero % index == 0:
+                    resultado = resultado + (index,)
+                else:
+                    pass
+                index = index + 1
             else:
-                pass
-            index = index + 1
-        else:
-            index = index + 1
+                index = index + 1
     return resultado
 
 
