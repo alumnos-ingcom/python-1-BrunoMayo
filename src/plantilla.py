@@ -1,5 +1,5 @@
 ################
-# Nombre - @usuario_github
+# Nombre - @BrunoMayo
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
