@@ -6,7 +6,6 @@
 """
 Escribir una función que reciba un número e indique si el mismo es positivo, negativo o cero utilizando sumas y restas.
 """    
-from ejercicio1 import es_float
 
 try:
     from ejercicio1 import es_float
