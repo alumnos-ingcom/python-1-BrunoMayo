@@ -8,6 +8,10 @@ Escribir una función que reciba un número e indique si el mismo es positivo, n
 """    
 from ejercicio1 import es_float
 
+try:
+    from ejercicio1 import es_float
+except ImportError as exc:
+    from src.ejercicio1 import es_float
 
 def signo(numero):
     """
