@@ -10,7 +10,11 @@ Esto quiere decir que para hacer la suma entre 4 y 3, las operaciones resultante
 La funcion debe ser capaz de sumar cualquier numero entero positivo y negativo.
 """
 
-from ejercicio2 import signo
+
+try:
+    from ejercicio2 import signo
+except ImportError as exc:
+    from src.ejercicio2 import signo
 
 
 def es_int(numero):

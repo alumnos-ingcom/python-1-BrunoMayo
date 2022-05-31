@@ -6,7 +6,10 @@
 """
 Escribir una función que indique con True si un numero indicado es Primo.
 """
-from ejercicio4 import es_int
+try:
+    from ejercicio4 import es_int
+except ImportError as exc:
+    from src.ejercicio4 import es_int
 
 def es_primo(numero):
     """

@@ -11,7 +11,10 @@ Y otra que haga el cambio en el sentido contrario, devolviendo una tuple.
 Recuerden que un grado son 60 minutos y un minuto son 60 segundos.
 """
 
-from ejercicio4 import es_int
+try:
+    from ejercicio4 import es_int
+except ImportError as exc:
+    from src.ejercicio4 import es_int
 
 def sexadecimal_a_decimal(horas, minutos, segundos):
     """

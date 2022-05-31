@@ -8,7 +8,12 @@ Escribir una función que a partir de tres variables de tipo entero
 retorne una tupla con dichos valores ordenados de menor a mayor. Y Viceversa
 """
 
-from ejercicio4 import es_int
+try:
+    from ejercicio4 import es_int
+except ImportError as exc:
+    from src.ejercicio4 import es_int
+
+
 
 def ordenar_mayor_a_menor(uno, dos, tres):
     """

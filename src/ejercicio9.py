@@ -6,8 +6,15 @@
 """
 Escribir una función que retorne una tuple con factores primos de un numero entero positivo.
 """
-from ejercicio4 import es_int
-from ejercicio8 import es_primo
+try:
+    from ejercicio4 import es_int
+except ImportError as exc:
+    from src.ejercicio4 import es_int
+    
+try:
+    from ejercicio8 import es_primo
+except ImportError as exc:
+    from src.ejercicio8 import es_primo
 
 def factores_primos(numero):
     """

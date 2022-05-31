@@ -7,7 +7,11 @@
 Escribir una función que mediante restas sucesivas, obtenga el valor del cociente y resto de dos números enteros.
 """
 
-from ejercicio4 import es_int
+
+try:
+    from ejercicio4 import es_int
+except ImportError as exc:
+    from src.ejercicio4 import es_int
 
 
 

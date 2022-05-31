@@ -10,8 +10,21 @@ Retornar -1 si el primero es menor que el segundo
 Retornar 0 si son iguales
 Retornar 1 si el primero es mayor que el segundo
 """
-from ejercicio1 import es_float
-from ejercicio2 import signo
+
+
+try:
+    from ejercicio1 import es_float
+except ImportError as exc:
+    from src.ejercicio1 import es_float
+    
+try:
+    from ejercicio2 import signo
+except ImportError as exc:
+    from src.ejercicio2 import signo
+
+
+
+
 
 
 def compara(numero, otro_numero):

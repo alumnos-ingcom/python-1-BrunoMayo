@@ -7,7 +7,10 @@
 Escribir una función que indique con True si un número entero es multiplo de otro, utilizando sumas y restas.
 """
 
-from ejercicio4 import es_int
+try:
+    from ejercicio4 import es_int
+except ImportError as exc:
+    from src.ejercicio4 import es_int
 
 
 
