@@ -12,19 +12,40 @@ import pytest
 
 from src.ejercicio5 import division_lenta
 
-def test_division_lenta():
+def test_division_lenta_0():
     """
-    Esta funcion testea division con y sin resto, division por cero y tambien caso en el que un parametro no es un numero entero
+    Esta funcion testea la division sin resto
+    Tambien chequea que el tipo que devuelve la funcion se conrresponda con la poscondicion
     """
-    resultado1 = division_lenta(20, 2)
-    resultado2 = division_lenta(20, 3)
-    resultado3 = division_lenta(20, 0)
-    resultado4 = division_lenta("Hola", 20)
+    resultado = division_lenta(20, 2)
+    assert resultado == (10, 0)
+    assert isinstance(resultado, tuple)
     
-    
-    assert resultado1 == (10, 0)
-    assert resultado2 == (6, 2)
-    assert resultado3 == "No se puede realizar la operacion ya que el divisor es 0"
-    assert resultado4 == "Alguno de los parametros ingresados no es un numero entero"
-    assert isinstance(resultado1[0], int)
-    assert isinstance(resultado1[1], int)
+
+def test_division_lenta_1():
+    """
+    Esta funcion testea la division con resto
+    Tambien chequea que el tipo que devuelve la funcion se conrresponda con la poscondicion
+    """
+    resultado = division_lenta(20, 3)
+    assert resultado == (6, 2)
+    assert isinstance(resultado, tuple) 
+
+def test_division_lenta_2():
+    """
+    Esta funcion testea la division por cero
+    Tambien chequea que el tipo que devuelve la funcion se conrresponda con la poscondicion
+    """
+    resultado = division_lenta(20, 0)
+    assert resultado == "No se puede realizar la operacion ya que el divisor es 0"
+    assert isinstance(resultado, str)
+
+
+def test_division_lenta_3():
+    """
+    Esta funcion testea el caso donde uno de los parametros no es un numero entero
+    Tambien chequea que el tipo que devuelve la funcion se conrresponda con la poscondicion
+    """
+    resultado = division_lenta("Hola", 20)
+    assert resultado == "Alguno de los parametros ingresados no es un numero entero"
+    assert isinstance(resultado, str)

@@ -12,18 +12,39 @@ import pytest
 
 from src.ejercicio9 import factores_primos
 
-def test_factores_primos():
+def test_factores_primos_0():
     """
-    Esta funcion testea un numero primo, uno no primo, el cero y un paramentro de 
-    entreada no correcto
+    Esta funcion testea un numero no primo
+    Verifica que el tipo de dato que devuelve la funcion se corresponda con la poscondicion
     """
-    resultado1 = factores_primos(1000)
-    resultado2 = factores_primos(3)
-    resultado3 = factores_primos(0)
-    resultado4 = factores_primos("test")
+    resultado = factores_primos(1000)
+    assert resultado == (2, 5)
+    assert isinstance(resultado, tuple)
+
+def test_factores_primos_1():
+    """
+    Esta funcion testea un numero primo
+    Verifica que el tipo de dato que devuelve la funcion se corresponda con la poscondicion
+    """
+    resultado = factores_primos(3)
+    assert resultado == (3, )
+    assert isinstance(resultado, tuple)
     
-    assert resultado1 == (2, 5)
-    assert resultado2 == (3)
-    assert resultado3 == ()
-    assert resultado4 == "El parametro ingresado no es un numero entero"
-    assert isinstance(resultado1, tuple)
+def test_factores_primos_2():
+    """
+    Esta funcion prueba el numero cero
+    Verifica que el tipo de dato que devuelve la funcion se corresponda con la poscondicion
+    """
+    
+    resultado = factores_primos(0)
+    assert resultado == ()
+    assert isinstance(resultado, tuple)
+
+def test_factores_primos_3():
+    """
+    Esta funcion prueba un valor que no es un numero entero
+    Verifica que el tipo de dato que devuelve la funcion se corresponda con la poscondicion
+    """
+    resultado = factores_primos("test")
+    assert resultado == "El parametro ingresado no es un numero entero"
+    assert isinstance(resultado, str)
