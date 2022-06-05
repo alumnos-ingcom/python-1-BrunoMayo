@@ -33,11 +33,12 @@ def es_palindromo(texto):
     Precondiciones: un string
     Poscondicion: un valor booleano
     """
-    texto = remover_espacios(texto).lower()
+    texto = remover_espacios(texto)
+    texto = texto.lower()
     longitud = len(texto) - 1
     indice = 0
     resultado = True
-    while indice < int(longitud / 2):
+    while indice < int(longitud // 2):
         if texto[indice] != texto[longitud - indice]:
             resultado = False
             break;
@@ -52,7 +53,8 @@ def principal():
     (La entrada, la llamada al algoritmo y la salida)
     """
     texto = input("Ingrese un texto: ")
-    print(es_palindromo(texto))
+    caso1 = es_palindromo(texto)
+    print(caso1)
 
 if __name__ == "__main__":
     principal()

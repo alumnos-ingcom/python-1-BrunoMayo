@@ -13,13 +13,10 @@ La funcion debe ser capaz de sumar cualquier numero entero positivo y negativo.
 
 try:
     from ejercicio2 import signo
+    from ejercicio1 import es_int
 except ImportError as exc:
     from src.ejercicio2 import signo
-
-
-def es_int(numero):
-    
-    return int(numero)
+    from src.ejercicio1 import es_int
 
 
 def suma_lenta(numero, otro_numero):
@@ -27,19 +24,22 @@ def suma_lenta(numero, otro_numero):
     Esta funcion suma dos numeros pero lo hace de una unidad a la vez
 
     Precondicion: dos numeros enteros
-    Poscondicion: un numero entero
+    Poscondicion: un numero entero o un string
     """
-    numero = es_int(numero)
-    otro_numero = es_int(otro_numero)
+    if (es_int(numero) and es_int(otro_numero)):
+        absoluto = abs(otro_numero)
+        while absoluto > 0:
+            if signo(otro_numero) == 1:
+                print(f"{numero} + 1")
+                numero = numero + 1
+                absoluto = absoluto - 1
+            else:
+                print(f"{numero} - 1")
+                numero = numero - 1
+                absoluto = absoluto - 1
+    else:
+        numero = "Alguno de los parametros ingresados no es un numero entero"
     
-    absoluto = abs(otro_numero)
-    while absoluto > 0:
-        if signo(otro_numero) == "positivo":
-            numero = numero + 1
-            absoluto = absoluto - 1
-        else:
-            numero = numero - 1
-            absoluto = absoluto - 1
     return numero
         
 
@@ -49,9 +49,10 @@ def principal():
     Esta función es la que se encarga de la parte 'interactiva' del ejercicio
     (La entrada, la llamada al algoritmo y la salida)
     """
-    numero1 = input("Ingrese un numero: ")
-    numero2 = input("Ingrese otro numero: ")
-    print(suma_lenta(numero1, numero2))
+    numero1 = int(input("Ingrese el primer numero: "))
+    numero2 = int(input("Ingrese el segundo numero: "))
+
+    print(suma_lenta(numero2, numero1))
     
 
 

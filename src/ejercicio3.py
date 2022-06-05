@@ -14,14 +14,12 @@ Retornar 1 si el primero es mayor que el segundo
 
 try:
     from ejercicio1 import es_float
-except ImportError as exc:
-    from src.ejercicio1 import es_float
-    
-try:
+    from ejercicio1 import es_int
     from ejercicio2 import signo
 except ImportError as exc:
+    from src.ejercicio1 import es_float
+    from src.ejercicio1 import es_int
     from src.ejercicio2 import signo
-
 
 
 
@@ -34,18 +32,13 @@ def compara(numero, otro_numero):
     ambos numeros son iguales.
     
     Precondicion: dos numeros reales
-    Poscondicion: un numero entero (1, -1 o 0)
+    Poscondicion: un numero entero (1, -1 o 0) o un string
     """
-    numero = es_float(numero)
-    otro_numero = es_float(otro_numero)
-    
-    resultado = numero - otro_numero
-    if signo(resultado) == "positivo":
-        resultado = 1
-    elif signo(resultado) == "negativo":
-        resultado = -1
+    if (es_float(numero) or es_int(numero)) and (es_float(otro_numero) or es_int(otro_numero)):
+        temp = numero - otro_numero
+        resultado = signo(temp)
     else:
-        resultado = 0
+        resultado = "Uno o ambos parametros ingresado no es un numero"
     return resultado
     
 
@@ -56,10 +49,17 @@ def principal():
     Esta función es la que se encarga de la parte 'interactiva' del ejercicio
     (La entrada, la llamada al algoritmo y la salida)
     """
-    numero1 = input("Ingrese un numero: ")
-    numero2 = input("Ingrese otro numero: ")
 
-    print(compara(numero1, numero2))
+    numero1 = float(input("Ingrese el primer numero: "))
+    numero2 = float(input("Ingrese el segundo numero: "))
+
+    if compara(numero1, numero2) == 1:
+        print("El primer numero es mayor que el segundo")
+    elif compara(numero1, numero2) == -1:
+        print("El primer numero es menor que el segundo")
+    else:
+        print("Ambos numeros son iguales")
+
 
 if __name__ == "__main__":
     principal()
