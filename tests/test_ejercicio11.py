@@ -12,21 +12,48 @@ import pytest
 
 from src.ejercicio11 import es_multiplo
 
-def test_es_multiplo():
+def test_es_multiplo_0():
     """
-    Esta funcion testea caso donde sucede que un numero es multiplo de otro, uno donde no,
-    casos con 1 y 0 y un caso donde un parametro no es un numero
+    Esta funcion testea caso donde sucede que un numero es multiplo de otro.
+    Tambien chequea que el tipo de dato que devuelve la funcion se corresponda con el de la poscondicion
     """
-    resultado1 = es_multiplo(3, 9)
-    resultado2 = es_multiplo(9, 3)
-    resultado3 = es_multiplo(1, 0)
-    resultado4 = es_multiplo(0, 1)
-    resultado5 = es_multiplo("test", 2)
-    
-    assert resultado1 == True
-    assert resultado2 == False
-    assert resultado3 == True
-    assert resultado4 == False
-    assert resultado5 == "El parametro ingresado no es un numero entero"
-    assert isinstance(resultado1, bool)
+    resultado = es_multiplo(3, 9)
+    assert resultado == True
+    assert isinstance(resultado, bool)
+
+def test_es_multiplo_1():
+    """
+    Esta funcion testea caso donde sucede que un numero NO es multiplo de otro.
+    Tambien chequea que el tipo de dato que devuelve la funcion se corresponda con el de la poscondicion
+    """
+    resultado = es_multiplo(9, 3)
+    assert resultado == False
+    assert isinstance(resultado, bool)
+
+def test_es_multiplo_2():
+    """
+    Esta funcion testea caso donde sucede que el multiplo es cero
+    Tambien chequea que el tipo de dato que devuelve la funcion se corresponda con el de la poscondicion
+    """
+    resultado = es_multiplo(1, 0)
+    assert resultado == True
+    assert isinstance(resultado, bool)
+
+def test_es_multiplo_3():
+    """
+    Esta funcion testea caso donde sucede que el numero es cero
+    Tambien chequea que el tipo de dato que devuelve la funcion se corresponda con el de la poscondicion
+    """
+    resultado = es_multiplo(0, 1)
+    assert resultado == False
+    assert isinstance(resultado, bool)
+
+def test_es_multiplo_4():
+    """
+    Esta funcion testea caso donde sucede que un valor no es un numero entero
+    Tambien chequea que el tipo de dato que devuelve la funcion se corresponda con el de la poscondicion
+    """
+    resultado = es_multiplo("test", 2)
+    assert resultado == "El parametro ingresado no es un numero entero"
+    assert isinstance(resultado, str)
     

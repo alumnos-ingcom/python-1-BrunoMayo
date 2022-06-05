@@ -12,20 +12,38 @@ import pytest
 
 from src.ejercicio3 import compara
 
-def test_compara():
+def test_compara_0():
     """
-    Esta funcion compara las 3 posibilidades: si el primer numero es mayor que el segundo, al revés o si son iguales.
-    Tambien se prueba lo que sucede cuando un parametro ingresado no es un numero.
+    Esta funcion compara el caso donde el primero es mayor que el segundo.
+    Tambien chequea que el tipo que devuelve la funcion corresponda a la poscondicion
     """
+    resultado = compara(3, 2)
+    assert resultado == 1
+    assert isinstance(resultado, int)
 
+def test_compara_1():
+    """
+    Esta funcion compara el caso donde ambos numeros son iguales
+    Tambien chequea que el tipo que devuelve la funcion corresponda a la poscondicion
+    """
+    resultado = compara(2, 2)  
+    assert resultado == 0    
+    assert isinstance(resultado, int)
 
-    resultado1 = compara(3, 2)
-    resultado2 = compara(2, 2)    
-    resultado3 = compara(2, 3)    
-    resultado4 = compara("hola", 2)
-    
-    assert resultado1 == 1
-    assert resultado2 == 0
-    assert resultado3 == -1
-    assert resultado4 == "Uno o ambos parametros ingresado no es un numero"
-    assert isinstance(resultado1, int)
+def test_compara_2():
+    """
+    Esta funcion compara el caso donde el segundo es mayor que el segundo.
+    Tambien chequea que el tipo que devuelve la funcion corresponda a la poscondicion
+    """
+    resultado = compara(2, 3)    
+    assert resultado == -1
+    assert isinstance(resultado, int)
+
+def test_compara_3():
+    """
+    Esta funcion compara el caso donde uno de los parametros no es un numero
+    Tambien chequea que el tipo que devuelve la funcion corresponda a la poscondicion
+    """
+    resultado = compara("hola", 2)
+    assert resultado == "Uno o ambos parametros ingresado no es un numero"
+    assert isinstance(resultado, str)

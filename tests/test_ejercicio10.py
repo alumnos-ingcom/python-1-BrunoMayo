@@ -12,15 +12,38 @@ import pytest
 
 from src.ejercicio10 import es_palindromo
 
-def test_es_palindromo():
-    resultado1 = es_palindromo("neuquen")
-    resultado2 = es_palindromo("neu quen")
-    resultado3 = es_palindromo("neuqueN")
-    resultado4 = es_palindromo("No soy palindromo")
+def test_es_palindromo_0():
+    """
+    Esta funcion testea un string todo en minusculas y junto
+    Tambien chequea que el tipo de dato que retorna de la funcion se corresponda con la poscondicion
+    """
+    resultado = es_palindromo("neuquen")
+    assert resultado == True
+    assert isinstance(resultado, bool)
+
+def test_es_palindromo_1():
+    """
+    Esta funcion testea un string con espacios en el medio de la palabra
+    Tambien chequea que el tipo de dato que retorna de la funcion se corresponda con la poscondicion
+    """
+    resultado = es_palindromo("neu quen")
+    assert resultado == True
+    assert isinstance(resultado, bool)
+
+def test_es_palindromo_2():
+    """
+    Esta funcion testea un string que mezcla minusculas y mayusculas
+    Tambien chequea que el tipo de dato que retorna de la funcion se corresponda con la poscondicion
+    """
+    resultado = es_palindromo("neUQueN")
+    assert resultado == True
+    assert isinstance(resultado, bool)
     
-    
-    assert resultado1 == True
-    assert resultado2 == True
-    assert resultado3 == True
-    assert resultado4 == False
-    assert isinstance(resultado1, bool)
+def test_es_palindromo_3():
+    """
+    Esta funcion testea un string que no es palindromo
+    Tambien chequea que el tipo de dato que retorna de la funcion se corresponda con la poscondicion
+    """
+    resultado = es_palindromo("No soy palindromo")
+    assert resultado == False
+    assert isinstance(resultado, bool)

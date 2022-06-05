@@ -12,21 +12,49 @@ import pytest
 
 from src.ejercicio8 import es_primo
 
-def test_es_primo():
+def test_es_primo_0():
     """
-    Esta funcion prueba un valor primo, uno no primo, el uno, el cero y tabien un parametro con el tipo de dato que no corresponde
+    Esta funcion prueba un valor primo
+    Tambien chequea que el tipo de dato que devuelve al funcion se corresponda con la poscondicion
     """
-    resultado1 = es_primo(17)
-    resultado2 = es_primo(10)
-    resultado3 = es_primo(0)
-    resultado4 = es_primo(1)
-    resultado5 = es_primo(True)
-    
-    assert resultado1 == True
-    assert resultado2 == False
-    assert resultado3 == False
-    assert resultado4 == False
-    assert resultado5 == "El parametro ingresado no es un numero entero"
-    assert isinstance(resultado1, bool)
+    resultado = es_primo(17)
+    assert resultado == True
+    assert isinstance(resultado, bool)
+
+def test_es_primo_1():
+    """
+    Esta funcion prueba un valor no primo
+    Tambien chequea que el tipo de dato que devuelve al funcion se corresponda con la poscondicion
+    """
+    resultado = es_primo(10)
+    assert resultado == False
+    assert isinstance(resultado, bool)
+
+def test_es_primo_2():
+    """
+    Esta funcion prueba el cero
+    Tambien chequea que el tipo de dato que devuelve al funcion se corresponda con la poscondicion
+    """
+    resultado = es_primo(0)
+    assert resultado == False
+    assert isinstance(resultado, bool)
+
+def test_es_primo_3():  
+    """
+    Esta funcion prueba el uno
+    Tambien chequea que el tipo de dato que devuelve al funcion se corresponda con la poscondicion
+    """
+    resultado = es_primo(1)
+    assert resultado == False
+    assert isinstance(resultado, bool)
+
+def test_es_primo_4():  
+    """
+    Esta funcion prueba tipo de dato que no es un numero entero
+    Tambien chequea que el tipo de dato que devuelve al funcion se corresponda con la poscondicion
+    """
+    resultado = es_primo(True)
+    assert resultado == "El parametro ingresado no es un numero entero"
+    assert isinstance(resultado, str)
     
     
